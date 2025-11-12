@@ -26,3 +26,4 @@ dist/
 # Arquivos grandes e dados locais
 data/
 notebooks/
+.env
