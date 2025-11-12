@@ -27,3 +27,12 @@ dist/
 data/
 notebooks/
 .env
+
+# Arquivos de ambiente e chaves
+.env
+*.env
+.env.*
+# Credenciais ou tokens
+*.key
+*.pem
+*.token
