@@ -1,38 +1,99 @@
-# Ambientes virtuais
-venv/
+# =============================
+# PYTHON
+# =============================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
 .env/
 .venv/
+venv/
+env/
+ENV/
+.conda/
 
-# Cache e logs
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-*.log
-
-# VS Code
-.vscode/
-.history/
-
-# Arquivos temporários do sistema
-.DS_Store
-Thumbs.db
-
-# Dependências e builds
-*.egg-info/
+# =============================
+# BUILD / DIST
+# =============================
 build/
 dist/
+*.egg-info/
+.eggs/
+wheels/
+*.manifest
+*.spec
 
-# Arquivos grandes e dados locais
-data/
-notebooks/
-.env
+# =============================
+# NOTEBOOKS
+# =============================
+.ipynb_checkpoints/
+*.nbconvert.ipynb
+*.ipynb~backup
 
-# Arquivos de ambiente e chaves
+# =============================
+# MACHINE LEARNING / IA
+# =============================
+# Modelos e pesos
+*.ckpt
+*.pt
+*.pth
+*.h5
+*.joblib
+*.pkl
+*.bin
+
+# Resultados de treino
+checkpoints/
+outputs/
+logs/
+runs/
+tensorboard/
+wandb/
+mlruns/
+
+# =============================
+# RAG / LANGCHAIN / BASES VETORIAIS
+# =============================
+# Índices e bancos locais
+chroma/
+faiss_index/
+vector_store/
+index_store/
+db/
+db.sqlite*
+*.vectordb
+*.faiss
+*.chroma
+*.sqlite
+*.parquet
+
+# =============================
+# CONFIGURAÇÕES E CREDENCIAIS
+# =============================
 .env
 *.env
 .env.*
-# Credenciais ou tokens
 *.key
 *.pem
 *.token
+*.secrets
+secrets.json
+credentials.json
+
+# =============================
+# EDITORES / IDE
+# =============================
+.vscode/
+.idea/
+*.code-workspace
+
+# =============================
+# OUTROS
+# =============================
+*.log
+*.tmp
+*.bak
+*.old
+*.swp
+*.swo
