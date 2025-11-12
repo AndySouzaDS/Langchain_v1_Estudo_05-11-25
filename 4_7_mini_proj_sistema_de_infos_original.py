@@ -1,17 +1,6 @@
-# 🚀 MINI-PROJETO 1: Sistema de Informações
-
-# **Objetivo:** Integrar tudo que aprendeu até agora
-
-# Crie um sistema com:
-
-# 1. 3 tools customizadas (você escolhe o tema)
-# 2. Uma função que lista todas as tools disponíveis
-# 3. Um menu interativo que permite testar cada tool 
-# ----------------------------------------------------------
-#%%
 from langchain_core.tools import tool
 
-#%%
+
 # 1. 3 tools customizadas (você escolhe o tema)
 @tool
 def info_pais(pais: str) -> str:
@@ -25,15 +14,36 @@ def info_pais(pais: str) -> str:
 
 @tool
 def calcular_idade(ano_nascimento: int) -> str:
-    """Calcula a idade baseada no ano de nascimento."""
+    """Calcula a idade baseada no ano de nascimento. Ano de Nascimento formato: YYYY"""
     from datetime import datetime
-    idade = datetime.now().year
+    idade = datetime.now().year - ano_nascimento
+    return f"Você tem aproximadamente {idade} anos."
+
+@tool
+def converter_moeda(valor: float, de: str, para: str) -> str:
+    """Converter valores entre moedas (BRL, USD, EUR)"""
+    taxas = {
+        ("brl", "usd"): 0.20,
+        ("usd", "brl"): 5.00,
+        ("brl", "eur"): 0.18,
+        ("eur", "brl"): 5.50
+    }
+
+    chave = (de.lower(), para.lower())
+    if chave in taxas:
+        resultado = valor * taxas[chave]
+        return f"{valor:.2f} {de.upper()} = {resultado:.2f} {para.upper()}"
+    return "Conversão não disponível."
+
+tools = [info_pais, calcular_idade, converter_moeda]
 
 
-#%%
-from datetime import datetime
 
-idade = datetime.now()
-print(idade)
 
-# %%
+
+if __name__ == "__main__":
+    # response = calcular_idade.invoke({"ano_nascimento": 1975})
+    # print(response)
+    response = converter_moeda.invoke({"valor": 100, "de": "brl", "para": "usd"})
+    print(response)
+
